@@ -1,3 +1,6 @@
 node_modules/
 .env
 dist/
+coverage/
+src/__tests__/
+src/handlers/__tests__/

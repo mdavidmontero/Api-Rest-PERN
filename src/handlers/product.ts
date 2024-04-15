@@ -5,7 +5,7 @@ export const getProducts = async (req: Request, res: Response) => {
   try {
     const products = await Product.findAll({
       order: [["price", "ASC"]],
-      attributes: { exclude: ["createdAt, updatedAt", "availability"] },
+      attributes: { exclude: ["createdAt, updatedAt"] },
     });
     res.json({ data: products });
   } catch (error) {
@@ -30,7 +30,7 @@ export const getProductsById = async (req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
   try {
     const product = await Product.create(req.body);
-    res.json({ data: product });
+    res.status(201).json({ data: product });
   } catch (error) {
     console.log(error);
   }
